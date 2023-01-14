@@ -1,0 +1,16 @@
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.csproj.AssemblyReference.cache
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.AssemblyInfoInputs.cache
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.AssemblyInfo.cs
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.csproj.CoreCompileInputs.cache
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Infra.deps.json
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Infra.runtimeconfig.json
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Infra.runtimeconfig.dev.json
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Infra.dll
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Infra.pdb
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Core.dll
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\bin\Debug\netcoreapp3.1\BAU.SeedIT.Core.pdb
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.csproj.CopyComplete
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.dll
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.pdb
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Infra\obj\Debug\netcoreapp3.1\BAU.SeedIT.Infra.genruntimeconfig.cache

@@ -1,0 +1,10 @@
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\bin\Release\netcoreapp3.1\BAU.SeedIT.Core.deps.json
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\bin\Release\netcoreapp3.1\BAU.SeedIT.Core.dll
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\bin\Release\netcoreapp3.1\BAU.SeedIT.Core.pdb
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.csproj.AssemblyReference.cache
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.AssemblyInfoInputs.cache
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.AssemblyInfo.cs
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.csproj.CoreCompileInputs.cache
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.dll
+C:\Users\Mahmoud Hamarsheh\source\repos\SeedITBAU\BAU.SeedIT.Core\obj\Release\netcoreapp3.1\BAU.SeedIT.Core.pdb
