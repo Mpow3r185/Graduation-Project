@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Common;
 using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
+using BAU.SeedIT.Core.Response;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -18,16 +19,14 @@ namespace Bau.Seedit.Infra.Repository
         {
             dbContext = _dbContext;
         }
-        public bool createPost(Post post)
+        public Post createPost(Post post)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@post_title", post.title, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@post_content", post.content, dbType: DbType.String, direction: ParameterDirection.Input);
-           // parameters.Add("@post_published", post.published, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@author_id", post.authorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@published_at", post.publishedAt, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("createPost", parameters, commandType: CommandType.StoredProcedure);
-            return true;
+            return post;
 
         }
 
@@ -39,9 +38,9 @@ namespace Bau.Seedit.Infra.Repository
             return true;
         }
 
-        public List<Post> getAllPosts()
+        public List<GetAllPosts> getAllPosts()
         {
-            IEnumerable<Post> result = dbContext.Connection.Query<Post>("getAllPosts", commandType: CommandType.StoredProcedure);
+            IEnumerable<GetAllPosts> result = dbContext.Connection.Query<GetAllPosts>("getAllPosts", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -67,9 +66,7 @@ namespace Bau.Seedit.Infra.Repository
             parameters.Add("@post_id", post.id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@post_title", post.title, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@post_content", post.content, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@post_published", post.published, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@author_id", post.authorId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@published_at", post.publishedAt, dbType: DbType.DateTime, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("updatePost", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }

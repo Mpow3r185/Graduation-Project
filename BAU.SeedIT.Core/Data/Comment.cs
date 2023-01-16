@@ -14,8 +14,6 @@ namespace Bau.Seedit.Core.Data
         [ForeignKey("id")]
         public virtual Post Post { get; set; }
         public string text { get; set; }
-        public int upVote { get; set; }
-        public int downVote { get; set; }
 
         public ICollection<PostAction> postActions { get; set; }
 

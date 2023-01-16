@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using BAU.SeedIT.Core.DTO;
 using MySql.Data.MySqlClient;
 
+
 namespace Bau.Seedit.Infra.Repository
 {
     public class AccountRepository : IAccountRepository
@@ -36,7 +37,9 @@ namespace Bau.Seedit.Infra.Repository
 
         public AccountDTO CreateAccount(Account account)
         {
-                 AccountDTO accountDTO = new AccountDTO();
+            try
+            {
+                AccountDTO accountDTO = new AccountDTO();
                 accountDTO.Id = account.Id;
                 accountDTO.Email = account.Email;
                 accountDTO.Name = account.Name;
@@ -47,7 +50,15 @@ namespace Bau.Seedit.Infra.Repository
                 parameters.Add("@userPassword", CreatePasswordHash(account.Password), dbType: DbType.String, direction: ParameterDirection.Input);
                 dbContext.Connection.Query<AccountDTO>("createUser", parameters, commandType: CommandType.StoredProcedure);
                 return accountDTO;
-          
+            }
+            catch (MySqlException ex)
+            {
+                return null;
+            }
+                       
+
+ 
+
         }
         public Profile CreateProfile(Profile profile)
         {

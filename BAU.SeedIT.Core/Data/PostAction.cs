@@ -19,8 +19,8 @@ namespace Bau.Seedit.Core.Data
         public int commentId { get; set; }
         [ForeignKey("id")]
         public virtual Comment Comment { get; set; }
-        public int upVote { get; set; }
-        public int downVote { get; set; }
+        public bool upVote { get; set; }
+        public bool downVote { get; set; }
 
     }
 }

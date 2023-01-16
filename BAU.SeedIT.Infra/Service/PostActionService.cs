@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +29,10 @@ namespace Bau.Seedit.Infra.Service
         public List<PostAction> getAllPostActions()
         {
             return postActionRepository.getAllPostActions();
+        }
+        public PostActionDTO getPostActionsByPostId(int id)
+        {
+            return postActionRepository.getPostActionsByPostId(id);
         }
     }
 }

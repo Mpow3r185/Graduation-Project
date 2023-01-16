@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,8 +25,12 @@ namespace Bau.Seedit.Infra.Service
         {
             return commentRepository.CommentUpVote(CommentId);
         }
+        public List<CommentDTO> getCommentsByPostId(int id)
+        {
+            return commentRepository.getCommentsByPostId(id);
+        }
 
-        public bool createComment(Comment comment)
+            public bool createComment(Comment comment)
         {
             return commentRepository.createComment(comment);
         }

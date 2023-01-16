@@ -4,6 +4,10 @@ using Bau.Seedit.Core.ServiceInterface;
 using Bau.Seedit.Infra.Common;
 using Bau.Seedit.Infra.Repository;
 using Bau.Seedit.Infra.Service;
+using BAU.SeedIT.Core.RepositoryInterface;
+using BAU.SeedIT.Core.ServiceInterface;
+using BAU.SeedIT.Infra.Repository;
+using BAU.SeedIT.Infra.Service;
 using CloudinaryDotNet;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -68,6 +72,9 @@ namespace SeedITBAU
 
             services.AddScoped<IPlantsRepository, PlantsRepository>();
             services.AddScoped<IPlantsService, PlantsService>();
+
+            services.AddScoped<IProfilePlantsRepository, ProfilePlantsRepository>();
+            services.AddScoped<IProfilePlantsService, ProfilePlantsService>();
             //Configure Jwt Authentication
             services.AddAuthentication(opt =>
             {

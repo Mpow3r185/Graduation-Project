@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Common;
 using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
+using BAU.SeedIT.Core.DTO;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,12 @@ namespace Bau.Seedit.Infra.Repository
             parameters.Add("@comment_id", commentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("commentUpVote", parameters, commandType: CommandType.StoredProcedure);
             return true;
+        }
+        public List<CommentDTO> getCommentsByPostId(int id)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@post_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            return dbContext.Connection.Query<CommentDTO>("getCommentsByPostId", parameters, commandType: CommandType.StoredProcedure).ToList();
         }
 
         public bool createComment(Comment comment)

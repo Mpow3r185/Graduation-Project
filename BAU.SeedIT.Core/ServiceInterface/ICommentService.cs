@@ -1,4 +1,5 @@
 ﻿using Bau.Seedit.Core.Data;
+using BAU.SeedIT.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Bau.Seedit.Core.ServiceInterface
         bool deleteComment(int id);
         bool CommentUpVote(int CommentId);
         bool CommentDownVote(int CommentId);
+        List<CommentDTO> getCommentsByPostId(int id);
 
     }
 }

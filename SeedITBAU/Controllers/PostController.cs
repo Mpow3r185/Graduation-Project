@@ -1,5 +1,7 @@
 ﻿using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.DTO;
+using BAU.SeedIT.Core.Response;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
@@ -18,24 +20,56 @@ namespace Bau.Seedit.API.Controllers
         private readonly IPostService postService;
         private readonly IPostActionService postActionService;
         private readonly ICommentService commentService;
-
-        public PostController(IPostService postService, IPostActionService postActionService, ICommentService commentService)
+        private readonly IAccountService accountService;
+        public PostController(IPostService postService, IPostActionService postActionService, ICommentService commentService, IAccountService accountService)
         {
             this.postService = postService;
             this.postActionService = postActionService;
             this.commentService = commentService;
+            this.accountService = accountService;
 
         }
 
         //Post
 
-        [HttpGet]
-        public List<Post> getAllPosts()
-        {
-            return postService.getAllPosts();
-        }
+        //[HttpGet]
+        //public List<IActionResult> getAllPosts()
+        //{
+        //    var posts = postService.getAllPosts();
+        //    var result = posts.Select(p => new
+        //    {
+        //        id = p.posts.Id,
+        //        title = p.p.Title,
+        //        content = p.p.Content,
+        //        image = p.p.Image,
+        //        createdAt = p.p.CreatedAt,
+        //        upVote = p.pa.UpVote,
+        //        downVote = p.pa.DownVote,
+        //        postActions = new
+        //        {
+        //            upVote = p.pa.UpVote,
+        //            downVote = p.pa.DownVote
+        //        },
+        //        comment = posts.Where(x => x.p.Id == p.
+
+        //p.Id).SelectMany(c => c.c).Select(x => new
+        //{
+        //    id = x.Id,
+        //    text = x.Text
+        //}),
+        //        author = new
+        //        {
+        //            id = p.a.Id,
+        //            name = p.a.Name,
+        //            email = p.a.Email,
+        //            profile = p.a.Profile
+        //        }
+        //    });
+        //    return Ok(result);
+        //}
+
         [HttpPost]
-        public bool createPost(Post post)
+        public Post createPost(Post post)
         {
             return postService.createPost(post);
         }
@@ -63,13 +97,6 @@ namespace Bau.Seedit.API.Controllers
             return postService.postDownVote(id);
         }
 
-        [HttpPut]
-        [Route("setPublishedAt/{id}")]
-        public bool updatePostPublishedAt(int id, DateTime publishedAt)
-        {
-            return postService.updatePostPublishedAt(id, publishedAt);
-
-        }
         //Post Action
 
         [HttpGet]

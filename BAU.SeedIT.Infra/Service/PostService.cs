@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.Response;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +16,7 @@ namespace Bau.Seedit.Infra.Service
         {
             postRepository = _postRepository;
         }
-        public bool createPost(Post post)
+        public Post createPost(Post post)
         {
             return postRepository.createPost(post);
         }
@@ -25,7 +26,7 @@ namespace Bau.Seedit.Infra.Service
             return postRepository.deletePost(id);
         }
 
-        public List<Post> getAllPosts()
+        public List<GetAllPosts> getAllPosts()
         {
             return postRepository.getAllPosts();
         }

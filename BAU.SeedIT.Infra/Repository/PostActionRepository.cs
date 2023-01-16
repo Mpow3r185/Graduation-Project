@@ -2,6 +2,7 @@
 using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.DTO;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -24,11 +25,17 @@ namespace Bau.Seedit.Infra.Repository
             var parameters = new DynamicParameters();
             parameters.Add("@user_id", postAction.userId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             parameters.Add("@post_id", postAction.postId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@up_vote", postAction.upVote, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@down_vote", postAction.downVote, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            parameters.Add("@up_vote", postAction.upVote, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            parameters.Add("@down_vote", postAction.downVote, dbType: DbType.Boolean, direction: ParameterDirection.Input);
             parameters.Add("@comment_id", postAction.commentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = dbContext.Connection.ExecuteAsync("createPostAction", parameters, commandType: CommandType.StoredProcedure);
             return true;
+        }
+        public PostActionDTO getPostActionsByPostId(int id)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("@post_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            return dbContext.Connection.Query<PostActionDTO>("getPostActionsByPostId", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
 
         public bool deletePostAction(int id)

@@ -11,6 +11,8 @@ namespace BAU.SeedIT.Core.DTO
         public string Email { get; set; }
         public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
+        //public bool IsError { get; set; }
+        //public string ErrorMessage { get; set; }
 
      
     }

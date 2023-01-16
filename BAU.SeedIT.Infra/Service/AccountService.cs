@@ -46,7 +46,7 @@ namespace Bau.Seedit.Infra.Service
             }
             else
             {
-                return null;
+                return "Email or password incorrect!";
             }
             //return accountRepository.CreateAccount(account);
         }
@@ -114,7 +114,7 @@ namespace Bau.Seedit.Infra.Service
                         
                         
                     }),
-                    Expires = DateTime.UtcNow.AddSeconds(30000),
+                    Expires = DateTime.UtcNow.AddDays(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(TokenKey),
                     SecurityAlgorithms.HmacSha256Signature)
                 };

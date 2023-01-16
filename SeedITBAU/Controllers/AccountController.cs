@@ -9,9 +9,11 @@ using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
@@ -25,15 +27,13 @@ namespace Bau.Seedit.API.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService accountService;
-        private readonly IDbContext dbContext;
         //private static readonly Cloudinary Cloudinary = new Cloudinary(
         //    new CloudinaryDotNet.Account("dwb7swvaf", "832363197752178", "eiHmj9s3_MG6VfQGBp0rQN02LmM"));
         Token token = new Token();
         Login login = new Login();
-        public AccountController(IAccountService _accountService, IDbContext _dbContext)
+        public AccountController(IAccountService _accountService)
         {
             accountService = _accountService;
-            dbContext = _dbContext;
         }
         [HttpGet]
         public List<Core.Data.Account> GetAllAccount()
@@ -55,26 +55,24 @@ namespace Bau.Seedit.API.Controllers
             {
                 return BadRequest(ModelState);
             }
-            try
-            {
+            
                 account.Id = Guid.NewGuid().GetHashCode();
-
+                
                 Core.Data.Account account1 = accountService.getUserById(account.Id);
-
                 token.token = accountService.CreateAccount(account);
                 token.user = new AccountDTO { Id = account1.Id, Email = account1.Email, Name = account1.Name };
 
-                if(token.token == null)
-                {
-                    return BadRequest("The Email or Name is already exist");
-                }
-
+            if (token.token == null)
+            {
+                return BadRequest("The Email or Name is already exist");
+            }
+            else
+            {
                 return Ok(token);
             }
-            catch (MySqlException ex) when (ex.Number == 1062)
-            {
-                return BadRequest("A account with that email already exists.");
-            }
+            
+
+
 
         }
         [HttpGet]
@@ -106,6 +104,25 @@ namespace Bau.Seedit.API.Controllers
         [Route("updateProfile")]
         public IActionResult UpdateProfile(Profile profile)
         {
+            var token = Request.Headers["x-auth-token"];
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var validationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING ,JWT SECRET KEY IN SIGNATURE")),
+                ValidateIssuer = false,
+                ValidateAudience = false
+            };
+
+            try
+            {
+                tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+            }
+            catch (SecurityTokenException)
+            {
+                return Unauthorized();
+            }
+
             try
             {
                 accountService.UpdateProfile(profile);
@@ -223,6 +240,7 @@ namespace Bau.Seedit.API.Controllers
                 return BadRequest();
             }
         }
+
 
 
 
