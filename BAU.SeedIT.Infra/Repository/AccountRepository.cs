@@ -69,8 +69,8 @@ namespace Bau.Seedit.Infra.Repository
             parameters.Add("@userName", profile.profileUserName, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@address_", profile.address, dbType: DbType.String, direction: ParameterDirection.Input);
             parameters.Add("@user_id", profile.UserId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@profilePicture", profile.UserId, dbType: DbType.String, direction: ParameterDirection.Input);
-            parameters.Add("@profilePictureThumbnail", profile.UserId, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@profilePicture", profile.profilePic, dbType: DbType.String, direction: ParameterDirection.Input);
+            parameters.Add("@profilePictureThumbnail", profile.profilePicThumbnail, dbType: DbType.String, direction: ParameterDirection.Input);
 
             IEnumerable<Profile> result = dbContext.Connection.Query<Profile>("createProfile", parameters, commandType: CommandType.StoredProcedure);
             return profile;

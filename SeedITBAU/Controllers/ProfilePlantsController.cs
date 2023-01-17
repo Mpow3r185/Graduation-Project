@@ -42,14 +42,6 @@ namespace BAU.SeedIT.API.Controllers
             return Ok(profilePlants1);
 
         }
-        [HttpGet]
-        [Route("getPlantsByProfileId/{id}")]
-        public  IActionResult getPlantsByProfileId(int id)
-        {
-            ProfilePlantsDTO profilePlantsDTO = new ProfilePlantsDTO();
-            profilePlantsDTO.Profile = accountService.getProfileById(id);
-            profilePlantsDTO.Plant = profilePlantsService.getPlantsByProfileId(id);
-            return Ok(profilePlantsDTO);
-        }
+
     }
 }

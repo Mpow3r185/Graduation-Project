@@ -4,6 +4,7 @@ using Bau.Seedit.Core.DTO;
 using Bau.Seedit.Core.ServiceInterface;
 using BAU.SeedIT.Core.Data;
 using BAU.SeedIT.Core.DTO;
+using BAU.SeedIT.Core.ServiceInterface;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Authorization;
@@ -27,13 +28,15 @@ namespace Bau.Seedit.API.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService accountService;
+        private readonly IProfilePlantsService profilePlantsService;
         //private static readonly Cloudinary Cloudinary = new Cloudinary(
         //    new CloudinaryDotNet.Account("dwb7swvaf", "832363197752178", "eiHmj9s3_MG6VfQGBp0rQN02LmM"));
         Token token = new Token();
         Login login = new Login();
-        public AccountController(IAccountService _accountService)
+        public AccountController(IAccountService _accountService, IProfilePlantsService _profilePlantsService)
         {
             accountService = _accountService;
+            profilePlantsService = _profilePlantsService;
         }
         [HttpGet]
         public List<Core.Data.Account> GetAllAccount()
@@ -56,10 +59,10 @@ namespace Bau.Seedit.API.Controllers
                 return BadRequest(ModelState);
             }
             
-                account.Id = Guid.NewGuid().GetHashCode();
-                
-                Core.Data.Account account1 = accountService.getUserById(account.Id);
+                account.Id = Math.Abs(Guid.NewGuid().GetHashCode());
                 token.token = accountService.CreateAccount(account);
+                Core.Data.Account account1 = accountService.getUserById(account.Id);
+                
                 token.user = new AccountDTO { Id = account1.Id, Email = account1.Email, Name = account1.Name };
 
             if (token.token == null)
@@ -70,8 +73,6 @@ namespace Bau.Seedit.API.Controllers
             {
                 return Ok(token);
             }
-            
-
 
 
         }
@@ -81,29 +82,13 @@ namespace Bau.Seedit.API.Controllers
         {
             return accountService.getAllProfiles();
         }
-    
+        
+
         [HttpPost]
         [Route("createProfile")]
         public IActionResult createProfile(Profile profile)
         {
-     
-            profile.Id = Guid.NewGuid().GetHashCode();
-             accountService.CreateProfile(profile);
-            Profile profile1 = accountService.getProfileById(profile.Id);
-            //token.profile = new Profile { Id = profile.Id, bio = profile.bio, profilePic = profile.profilePic, profilePicThumbnail = profile.profilePicThumbnail, profileUserName = profile.profileUserName, address = profile.address, UserId = profile.UserId}
 
-            return Ok(profile1);
-            
-        }
-        [HttpPut]
-        public bool UpdateAccount(Core.Data.Account account)
-        {
-            return accountService.UpdateAccount(account);
-        }
-        [HttpPut]
-        [Route("updateProfile")]
-        public IActionResult UpdateProfile(Profile profile)
-        {
             var token = Request.Headers["x-auth-token"];
             var tokenHandler = new JwtSecurityTokenHandler();
             var validationParameters = new TokenValidationParameters
@@ -122,6 +107,49 @@ namespace Bau.Seedit.API.Controllers
             {
                 return Unauthorized();
             }
+
+            try
+            {
+                profile.Id = Math.Abs(Guid.NewGuid().GetHashCode());
+                accountService.CreateProfile(profile);
+                Profile profile1 = accountService.getProfileById(profile.Id);
+                //token.profile = new Profile { Id = profile.Id, bio = profile.bio, profilePic = profile.profilePic, profilePicThumbnail = profile.profilePicThumbnail, profileUserName = profile.profileUserName, address = profile.address, UserId = profile.UserId}
+
+                return Ok(profile1);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+
+        }
+        [HttpPut]
+        public bool UpdateAccount(Core.Data.Account account)
+        {
+            return accountService.UpdateAccount(account);
+        }
+        [HttpPut]
+        [Route("updateProfile")]
+        public IActionResult UpdateProfile(Profile profile)
+        {
+            //var token = Request.Headers["x-auth-token"];
+            //var tokenHandler = new JwtSecurityTokenHandler();
+            //var validationParameters = new TokenValidationParameters
+            //{
+            //    ValidateIssuerSigningKey = true,
+            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING ,JWT SECRET KEY IN SIGNATURE")),
+            //    ValidateIssuer = false,
+            //    ValidateAudience = false
+            //};
+
+            //try
+            //{
+            //    tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+            //}
+            //catch (SecurityTokenException)
+            //{
+            //    return Unauthorized();
+            //}
 
             try
             {
@@ -203,7 +231,7 @@ namespace Bau.Seedit.API.Controllers
         [Route("Upload/{id}")]
         public async Task<IActionResult> UploadImageAsync(int id, IFormFile image)
         {
-            Profile profile = accountService.getProfileById(id);
+            
             try
             {
                 var cloudinary = new Cloudinary(new CloudinaryDotNet.Account(
@@ -228,7 +256,8 @@ namespace Bau.Seedit.API.Controllers
                 Console.WriteLine(result.Uri.ToString());
                 accountService.UploadThumb(id, result2.Uri.ToString());
                 accountService.UploadImage(id, result.Uri.ToString());
-               // return CreatedAtAction(nameof(UploadImageAsync), new { id = profile.Id }, profile);
+                Profile profile = accountService.getProfileById(id);
+                // return CreatedAtAction(nameof(UploadImageAsync), new { id = profile.Id }, profile);
                 return Ok(profile);
 
             }
@@ -239,6 +268,15 @@ namespace Bau.Seedit.API.Controllers
                 Console.WriteLine(ex);
                 return BadRequest();
             }
+        }
+        [HttpGet]
+        [Route("getProfileById/{id}")]
+        public IActionResult getProfileById(int id)
+        {
+            ProfilePlantsDTO profilePlantsDTO = new ProfilePlantsDTO();
+            profilePlantsDTO.Profile = accountService.getProfileById(id);
+            profilePlantsDTO.Plant = profilePlantsService.getPlantsByProfileId(id);
+            return Ok(profilePlantsDTO);
         }
 
 

@@ -58,11 +58,19 @@ namespace BAU.SeedIT.API.Controllers
 
                 try
                 {
+
                     tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
                 }
                 catch (SecurityTokenException)
                 {
-                    return Unauthorized();
+                    var newTokenV = GenerateJWT();
+                    return Ok(JsonConvert.SerializeObject(newTokenV));
+                    // return Unauthorized("Token is expired");
+                }
+                catch (Exception)
+                {
+                    // token is invalid
+                    return Unauthorized("Invalid token");
                 }
 
                 // Generate a new token
