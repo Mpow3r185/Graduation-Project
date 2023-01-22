@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Common;
 using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
+using BAU.SeedIT.Core.DTO;
 using BAU.SeedIT.Core.Response;
 using Dapper;
 using System;
@@ -38,9 +39,9 @@ namespace Bau.Seedit.Infra.Repository
             return true;
         }
 
-        public List<GetAllPosts> getAllPosts()
+        public List<GetPostData> getAllPosts()
         {
-            IEnumerable<GetAllPosts> result = dbContext.Connection.Query<GetAllPosts>("getAllPosts", commandType: CommandType.StoredProcedure);
+            IEnumerable<GetPostData> result = dbContext.Connection.Query<GetPostData>("getAllPosts", commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

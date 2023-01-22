@@ -146,12 +146,12 @@ namespace Bau.Seedit.Infra.Repository
             return result.ToList();
         }
 
-        public Account getUserById(int userid)
+        public AccountDTO getUserById(int userid)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("user_id",  userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
 
-            return dbContext.Connection.Query<Account>("getUserById", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return dbContext.Connection.Query<AccountDTO>("getUserById", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
         }
         public Account getUserByUserName(string userName)
         {

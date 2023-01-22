@@ -31,11 +31,11 @@ namespace Bau.Seedit.Infra.Repository
             var result = dbContext.Connection.ExecuteAsync("createPostAction", parameters, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public PostActionDTO getPostActionsByPostId(int id)
+        public List<PostActionDTO> getPostActionsByPostId(int id)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@post_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            return dbContext.Connection.Query<PostActionDTO>("getPostActionsByPostId", parameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
+            return dbContext.Connection.Query<PostActionDTO>("getPostActionsByPostId", parameters, commandType: CommandType.StoredProcedure).ToList();
         }
 
         public bool deletePostAction(int id)

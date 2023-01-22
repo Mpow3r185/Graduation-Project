@@ -21,7 +21,7 @@ namespace Bau.Seedit.Core.RepositoryInterface
 
         bool DeleteAccount(int id);
 
-        Account getUserById(int userid);
+        AccountDTO getUserById(int userid);
         Account getUserByUserName(string userName);
 
         List<Profile> getAllProfiles();

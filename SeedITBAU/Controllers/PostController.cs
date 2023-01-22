@@ -1,5 +1,6 @@
 ﻿using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.Data;
 using BAU.SeedIT.Core.DTO;
 using BAU.SeedIT.Core.Response;
 using CloudinaryDotNet;
@@ -32,41 +33,25 @@ namespace Bau.Seedit.API.Controllers
 
         //Post
 
-        //[HttpGet]
-        //public List<IActionResult> getAllPosts()
-        //{
-        //    var posts = postService.getAllPosts();
-        //    var result = posts.Select(p => new
-        //    {
-        //        id = p.posts.Id,
-        //        title = p.p.Title,
-        //        content = p.p.Content,
-        //        image = p.p.Image,
-        //        createdAt = p.p.CreatedAt,
-        //        upVote = p.pa.UpVote,
-        //        downVote = p.pa.DownVote,
-        //        postActions = new
-        //        {
-        //            upVote = p.pa.UpVote,
-        //            downVote = p.pa.DownVote
-        //        },
-        //        comment = posts.Where(x => x.p.Id == p.
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Post>>> getAllPosts()
+        {
+            try
+            {
+      
+                List<GetPostData> posts = postService.getAllPosts();
+                var account = accountService.getUserById(posts[0].Author.Id);
 
-        //p.Id).SelectMany(c => c.c).Select(x => new
-        //{
-        //    id = x.Id,
-        //    text = x.Text
-        //}),
-        //        author = new
-        //        {
-        //            id = p.a.Id,
-        //            name = p.a.Name,
-        //            email = p.a.Email,
-        //            profile = p.a.Profile
-        //        }
-        //    });
-        //    return Ok(result);
-        //}
+                return Ok(posts);
+            }
+
+
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
         [HttpPost]
         public Post createPost(Post post)

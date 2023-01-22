@@ -30,7 +30,7 @@ namespace Bau.Seedit.Infra.Service
         {
             return postActionRepository.getAllPostActions();
         }
-        public PostActionDTO getPostActionsByPostId(int id)
+        public List<PostActionDTO> getPostActionsByPostId(int id)
         {
             return postActionRepository.getPostActionsByPostId(id);
         }

@@ -1,6 +1,7 @@
 ﻿using Bau.Seedit.Core.Data;
 using Bau.Seedit.Core.RepositoryInterface;
 using Bau.Seedit.Core.ServiceInterface;
+using BAU.SeedIT.Core.DTO;
 using BAU.SeedIT.Core.Response;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Bau.Seedit.Infra.Service
             return postRepository.deletePost(id);
         }
 
-        public List<GetAllPosts> getAllPosts()
+        public List<GetPostData> getAllPosts()
         {
             return postRepository.getAllPosts();
         }

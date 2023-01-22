@@ -20,7 +20,7 @@ namespace Bau.Seedit.Core.ServiceInterface
         bool UpdateAccount(Account account);
         bool DeleteAccount(int id);
         Profile getProfileById(int id);
-        Account getUserById(int userid);
+        AccountDTO getUserById(int userid);
         AccountDTO getUserByEmail(string email);
         Profile getProfileByUserId(int userId);
         Account getUserByUserName(string userName);

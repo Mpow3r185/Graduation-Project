@@ -11,7 +11,7 @@ namespace Bau.Seedit.Core.ServiceInterface
         List<PostAction> getAllPostActions();
         bool createPostAction(PostAction postAction);
         bool deletePostAction(int id);
-        PostActionDTO getPostActionsByPostId(int id);
+        List<PostActionDTO> getPostActionsByPostId(int id);
 
 
     }

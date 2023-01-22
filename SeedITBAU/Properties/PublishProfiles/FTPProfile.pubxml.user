@@ -6,16 +6,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbx6rZ2xPW06PtGHbQql4UwAAAAACAAAAAAAQZgAAAAEAACAAAABfPUvAot+CglyXphvF307Ys0sd6BmjZojzZ1Wcgze9wQAAAAAOgAAAAAIAACAAAADyP92m2lR51Fk5Vgc9qlfdDt9HobNAh8wcToaiX9IAAiAAAADZERoJB+MBp9DX+rFPWoHnUNjKowBRUVNXTnsgHQzoB0AAAAD9bknrBFU02DFhGhiUkdsbNCeSnwBLBm6HPvL/9tqeEpsY/9Bq/23tlr9ma1XaySpbx8jVdlf2nUz9Bc5kMl/s</EncryptedPassword>
-    <_PublishTargetUrl>ftp://SeedIT.somee.com/www.SeedIT.somee.com</_PublishTargetUrl>
-    <History>True|2023-01-13T16:19:07.6323176Z;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbx6rZ2xPW06PtGHbQql4UwAAAAACAAAAAAAQZgAAAAEAACAAAACPB/mOdPmZAkKQe/LPZBQ4R9pcXssm0U+Oodas5fjXHAAAAAAOgAAAAAIAACAAAACnfCknVA73lDQBbU+PCBCBIec7HXPgnFoZ/R5L1LxSYSAAAADZq1VzYkOa8OiyLndFDAV74MIZfk5aFSgY02gE2ZLEhkAAAAAy2OQhLZeLPcauNmghUVNpQlMzGNotsBUvenQnIw+radKX3oEby/6E4tm83ezMpMHxHJYqPf7TvsfX4jztGPpW</EncryptedPassword>
+    <_PublishTargetUrl>ftp://seedit.somee.com/www.SeedIT.somee.com</_PublishTargetUrl>
+    <History>True|2023-01-19T00:09:16.1635334Z;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
       <publishTime>01/13/2023 17:42:14</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>01/13/2023 18:00:40</publishTime>
+      <publishTime>01/15/2023 21:41:59</publishTime>
     </File>
     <File Include="Azure.Core.dll">
       <publishTime>10/29/2020 00:37:16</publishTime>
@@ -24,31 +24,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/13/2020 08:31:54</publishTime>
     </File>
     <File Include="BAU.SeedIT.API.deps.json">
-      <publishTime>01/13/2023 19:15:53</publishTime>
+      <publishTime>01/19/2023 03:04:17</publishTime>
     </File>
     <File Include="BAU.SeedIT.API.dll">
-      <publishTime>01/13/2023 19:15:52</publishTime>
+      <publishTime>01/19/2023 03:04:09</publishTime>
     </File>
     <File Include="BAU.SeedIT.API.exe">
-      <publishTime>01/13/2023 19:15:52</publishTime>
+      <publishTime>01/19/2023 03:04:09</publishTime>
     </File>
     <File Include="BAU.SeedIT.API.pdb">
-      <publishTime>01/13/2023 19:15:52</publishTime>
+      <publishTime>01/19/2023 03:04:09</publishTime>
     </File>
     <File Include="BAU.SeedIT.API.runtimeconfig.json">
-      <publishTime>01/13/2023 19:15:53</publishTime>
+      <publishTime>01/16/2023 02:17:36</publishTime>
     </File>
     <File Include="BAU.SeedIT.Core.dll">
-      <publishTime>01/13/2023 19:15:32</publishTime>
+      <publishTime>01/19/2023 03:04:05</publishTime>
     </File>
     <File Include="BAU.SeedIT.Core.pdb">
-      <publishTime>01/13/2023 19:15:32</publishTime>
+      <publishTime>01/19/2023 03:04:05</publishTime>
     </File>
     <File Include="BAU.SeedIT.Infra.dll">
-      <publishTime>01/13/2023 19:15:35</publishTime>
+      <publishTime>01/19/2023 03:04:07</publishTime>
     </File>
     <File Include="BAU.SeedIT.Infra.pdb">
-      <publishTime>01/13/2023 19:15:35</publishTime>
+      <publishTime>01/19/2023 03:04:07</publishTime>
     </File>
     <File Include="BouncyCastle.Crypto.dll">
       <publishTime>10/19/2021 14:53:34</publishTime>
@@ -78,10 +78,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/13/2019 05:28:44</publishTime>
     </File>
     <File Include="Microsoft.Data.SqlClient.dll">
-      <publishTime>06/09/2021 01:29:56</publishTime>
-    </File>
-    <File Include="Microsoft.Data.SqlClient.SNI.dll">
-      <publishTime>06/04/2021 01:52:04</publishTime>
+      <publishTime>06/09/2021 01:29:58</publishTime>
     </File>
     <File Include="Microsoft.Extensions.Configuration.Abstractions.dll">
       <publishTime>10/19/2020 21:48:28</publishTime>
@@ -111,10 +108,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/20/2021 23:08:46</publishTime>
     </File>
     <File Include="Microsoft.Win32.Registry.dll">
-      <publishTime>10/19/2020 21:38:06</publishTime>
+      <publishTime>10/19/2020 21:37:46</publishTime>
     </File>
     <File Include="Microsoft.Win32.SystemEvents.dll">
-      <publishTime>10/19/2020 21:52:12</publishTime>
+      <publishTime>10/19/2020 21:40:26</publishTime>
     </File>
     <File Include="MySql.Data.dll">
       <publishTime>09/09/2022 17:08:02</publishTime>
@@ -125,44 +122,110 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Oracle.ManagedDataAccess.dll">
       <publishTime>10/12/2021 14:42:10</publishTime>
     </File>
+    <File Include="runtimes/linux/lib/netcoreapp2.0/System.DirectoryServices.Protocols.dll">
+      <publishTime>10/19/2020 21:51:46</publishTime>
+    </File>
+    <File Include="runtimes/osx/lib/netcoreapp2.0/System.DirectoryServices.Protocols.dll">
+      <publishTime>10/19/2020 21:51:38</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/System.Security.Principal.Windows.dll">
+      <publishTime>10/19/2020 21:46:26</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>10/19/2020 21:49:58</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
+      <publishTime>06/09/2021 01:29:58</publishTime>
+    </File>
+    <File Include="runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>06/04/2021 01:51:54</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>06/04/2021 01:51:54</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>06/04/2021 01:52:04</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>06/04/2021 01:51:54</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.Diagnostics.PerformanceCounter.dll">
+      <publishTime>01/23/2021 06:41:24</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.DirectoryServices.dll">
+      <publishTime>10/19/2020 21:50:26</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.DirectoryServices.Protocols.dll">
+      <publishTime>10/19/2020 21:51:00</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll">
+      <publishTime>10/19/2020 21:46:06</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/System.Security.Principal.Windows.dll">
+      <publishTime>10/19/2020 21:46:14</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll">
+      <publishTime>10/19/2020 21:52:12</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>10/19/2020 21:53:02</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll">
+      <publishTime>10/19/2020 21:53:36</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll">
+      <publishTime>06/09/2021 01:29:56</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll">
+      <publishTime>10/19/2020 21:38:06</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.IO.FileSystem.AccessControl.dll">
+      <publishTime>10/19/2020 21:37:50</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll">
+      <publishTime>11/15/2019 11:53:44</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>10/19/2020 21:49:30</publishTime>
+    </File>
     <File Include="System.Configuration.ConfigurationManager.dll">
       <publishTime>10/19/2020 21:52:30</publishTime>
     </File>
     <File Include="System.Diagnostics.PerformanceCounter.dll">
-      <publishTime>01/23/2021 06:41:24</publishTime>
+      <publishTime>01/23/2021 06:41:14</publishTime>
     </File>
     <File Include="System.DirectoryServices.dll">
-      <publishTime>10/19/2020 21:50:26</publishTime>
+      <publishTime>10/19/2020 21:50:40</publishTime>
     </File>
     <File Include="System.DirectoryServices.Protocols.dll">
-      <publishTime>10/19/2020 21:51:00</publishTime>
+      <publishTime>10/19/2020 21:50:58</publishTime>
     </File>
     <File Include="System.Drawing.Common.dll">
-      <publishTime>10/19/2020 21:53:02</publishTime>
+      <publishTime>10/19/2020 21:50:02</publishTime>
     </File>
     <File Include="System.IdentityModel.Tokens.Jwt.dll">
       <publishTime>08/20/2021 23:01:12</publishTime>
     </File>
     <File Include="System.IO.FileSystem.AccessControl.dll">
-      <publishTime>10/19/2020 21:37:50</publishTime>
+      <publishTime>10/19/2020 21:37:44</publishTime>
     </File>
     <File Include="System.Runtime.Caching.dll">
-      <publishTime>11/15/2019 11:53:44</publishTime>
+      <publishTime>11/15/2019 11:37:36</publishTime>
     </File>
     <File Include="System.Runtime.CompilerServices.Unsafe.dll">
       <publishTime>10/19/2020 21:47:52</publishTime>
     </File>
     <File Include="System.Security.AccessControl.dll">
-      <publishTime>10/19/2020 21:46:06</publishTime>
+      <publishTime>10/19/2020 21:37:22</publishTime>
     </File>
     <File Include="System.Security.Cryptography.ProtectedData.dll">
-      <publishTime>10/19/2020 21:49:30</publishTime>
+      <publishTime>10/19/2020 21:52:26</publishTime>
     </File>
     <File Include="System.Security.Permissions.dll">
       <publishTime>10/19/2020 21:53:40</publishTime>
     </File>
     <File Include="System.Security.Principal.Windows.dll">
-      <publishTime>10/19/2020 21:46:14</publishTime>
+      <publishTime>10/19/2020 21:37:20</publishTime>
     </File>
     <File Include="System.Text.Encodings.Web.dll">
       <publishTime>02/17/2021 00:57:46</publishTime>
@@ -171,10 +234,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/17/2021 01:41:54</publishTime>
     </File>
     <File Include="System.Windows.Extensions.dll">
-      <publishTime>10/19/2020 21:53:36</publishTime>
+      <publishTime>10/19/2020 21:53:38</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>01/13/2023 19:15:53</publishTime>
+      <publishTime>01/19/2023 03:04:18</publishTime>
     </File>
     <File Include="ZstdNet.dll">
       <publishTime>09/09/2022 17:03:36</publishTime>

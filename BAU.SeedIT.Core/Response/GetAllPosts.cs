@@ -8,9 +8,10 @@ namespace BAU.SeedIT.Core.Response
 {
     public class GetAllPosts
     {
-        public List<Post> posts { get; set; }
-        public List<PostActionDTO> PostActions { get; set; }
+        public List<PostDTO> posts { get; set; }
+        public PostActionDTO PostActions { get; set; }
         public List<CommentDTO> Comments { get; set; }
-        public List<AccountDTO> Author { get; set; }
+        public AccountDTO author { get; set; }
+        public Profile profile { get; set; }
     }
 }

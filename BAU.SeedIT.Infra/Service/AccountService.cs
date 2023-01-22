@@ -72,10 +72,7 @@ namespace Bau.Seedit.Infra.Service
         {
             return accountRepository.getUserByEmail(email);
         }
-        public Profile getProfileByUserId(int userId)
-        {
-            return accountRepository.getProfileByUserId(userId);
-        }
+         
         public List<Profile> getAllProfiles()
         {
             return accountRepository.getAllProfiles();
@@ -88,7 +85,7 @@ namespace Bau.Seedit.Infra.Service
         {
             return accountRepository.getProfileById(id);
         }
-        public Account getUserById(int userid)
+        public AccountDTO getUserById(int userid)
         {
             return accountRepository.getUserById(userid);
         }

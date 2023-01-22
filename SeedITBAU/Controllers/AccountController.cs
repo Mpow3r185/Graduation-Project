@@ -45,7 +45,7 @@ namespace Bau.Seedit.API.Controllers
         }
         [HttpGet]
         [Route("GetAccountById/{userid}")]
-        public Core.Data.Account GetUserById(int userid)
+        public AccountDTO GetUserById(int userid)
         {
             return accountService.getUserById(userid);
         }
@@ -61,7 +61,7 @@ namespace Bau.Seedit.API.Controllers
             
                 account.Id = Math.Abs(Guid.NewGuid().GetHashCode());
                 token.token = accountService.CreateAccount(account);
-                Core.Data.Account account1 = accountService.getUserById(account.Id);
+                AccountDTO account1 = accountService.getUserById(account.Id);
                 
                 token.user = new AccountDTO { Id = account1.Id, Email = account1.Email, Name = account1.Name };
 
@@ -89,24 +89,24 @@ namespace Bau.Seedit.API.Controllers
         public IActionResult createProfile(Profile profile)
         {
 
-            var token = Request.Headers["x-auth-token"];
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var validationParameters = new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING ,JWT SECRET KEY IN SIGNATURE")),
-                ValidateIssuer = false,
-                ValidateAudience = false
-            };
+            //var token = Request.Headers["x-auth-token"];
+            //var tokenHandler = new JwtSecurityTokenHandler();
+            //var validationParameters = new TokenValidationParameters
+            //{
+            //    ValidateIssuerSigningKey = true,
+            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING ,JWT SECRET KEY IN SIGNATURE")),
+            //    ValidateIssuer = false,
+            //    ValidateAudience = false
+            //};
 
-            try
-            {
-                tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
-            }
-            catch (SecurityTokenException)
-            {
-                return Unauthorized();
-            }
+            //try
+            //{
+            //    tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
+            //}
+            //catch (SecurityTokenException)
+            //{
+            //    return Unauthorized();
+            //}
 
             try
             {
@@ -185,9 +185,17 @@ namespace Bau.Seedit.API.Controllers
         public IActionResult UserLogin(UserLoginDTO userLoginDTO)
         {
             AccountDTO account = accountService.getUserByEmail(userLoginDTO.Email);
+            if(account == null)
+            {
+                return Unauthorized("Username or Password is incorrect");
+            }
             login.token = accountService.UserLogin(userLoginDTO);
             login.user = account;
             Profile profile = accountService.getProfileByUserId(account.Id);
+            if(profile == null)
+            {
+                return Ok(login);
+            }
 
             if (login.token != null)
             {
@@ -242,13 +250,13 @@ namespace Bau.Seedit.API.Controllers
                 var result = await cloudinary.UploadAsync(new ImageUploadParams
                 {
                     File = new FileDescription(image.FileName, image.OpenReadStream()),
-                    Transformation = new Transformation().Width(300).Height(300)
+                    Transformation = new Transformation().Width(400).Height(600)
                 });
 
                 var result2 = await cloudinary.UploadAsync(new ImageUploadParams
                 {
                     File = new FileDescription(image.FileName, image.OpenReadStream()),
-                    Transformation = new Transformation().Width(150).Height(150).Crop("thumb")
+                    Transformation = new Transformation().Width(75).Height(150).Crop("thumb")
                 });
 
 
@@ -278,9 +286,5 @@ namespace Bau.Seedit.API.Controllers
             profilePlantsDTO.Plant = profilePlantsService.getPlantsByProfileId(id);
             return Ok(profilePlantsDTO);
         }
-
-
-
-
     }
 }

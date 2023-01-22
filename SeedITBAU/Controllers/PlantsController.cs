@@ -33,7 +33,7 @@ namespace Bau.Seedit.API.Controllers
         {
             return plantsService.GetPlantById(id);
         }
-        [HttpGet]
+        [HttpPost]
         [Route("SearchPlant")]
         public List<Plants> SearchPlant(SearchPlantDTO plant)
         {
