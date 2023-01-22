@@ -33,7 +33,6 @@ namespace Bau.Seedit.Infra.Repository
             IEnumerable<Account> result = dbContext.Connection.Query<Account>("userLogin", parameters, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
-       //
 
         public AccountDTO CreateAccount(Account account)
         {

@@ -48,7 +48,6 @@ namespace Bau.Seedit.Infra.Service
             {
                 return "Email or password incorrect!";
             }
-            //return accountRepository.CreateAccount(account);
         }
         public bool UpdateAccount(Account account)
         {
@@ -133,6 +132,11 @@ namespace Bau.Seedit.Infra.Service
         }
 
         public string getMyName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Profile getProfileByUserId(int userId)
         {
             throw new NotImplementedException();
         }

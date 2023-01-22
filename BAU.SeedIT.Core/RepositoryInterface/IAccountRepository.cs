@@ -10,8 +10,6 @@ namespace Bau.Seedit.Core.RepositoryInterface
     public interface IAccountRepository
     {
 
-
-        //Create
         AccountDTO CreateAccount(Account account);
         List<Account> GetAllAccount();
 

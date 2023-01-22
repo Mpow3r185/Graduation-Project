@@ -58,9 +58,6 @@ namespace SeedITBAU
             services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddScoped<IAccountService, AccountService>();
 
-            services.AddScoped<IMyGardenRepository, MyGardenRepository>();
-            services.AddScoped<IMyGardenService, MyGardenService>();
-
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IPostService, PostService>();
 

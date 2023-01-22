@@ -79,14 +79,6 @@ namespace Bau.Seedit.Infra.Repository
             IEnumerable<Post> result = dbContext.Connection.Query<Post>("uploadPostImage", parameters, commandType: CommandType.StoredProcedure);
             return result.ToString(); 
         }
-        public bool updatePostPublishedAt(int id, DateTime publishedAt)
-        {
-            var parameters = new DynamicParameters();
-            parameters.Add("@post_id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            parameters.Add("@published_At", publishedAt, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            IEnumerable<Post> result = dbContext.Connection.Query<Post>("updatePostPublishedAt", parameters, commandType: CommandType.StoredProcedure);
-            return true;
-        }
 
     }
 }

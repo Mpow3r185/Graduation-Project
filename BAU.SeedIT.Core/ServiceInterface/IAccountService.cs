@@ -27,7 +27,6 @@ namespace Bau.Seedit.Core.ServiceInterface
         List<Profile> getAllProfiles();
         Profile CreateProfile(Profile profile);
         Profile UpdateProfile(Profile profile);
-        string getMyName();
         string UploadImage(int id, string image);
         string UploadThumb(int id, string image);
     }

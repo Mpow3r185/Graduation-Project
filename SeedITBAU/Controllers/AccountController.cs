@@ -29,8 +29,6 @@ namespace Bau.Seedit.API.Controllers
     {
         private readonly IAccountService accountService;
         private readonly IProfilePlantsService profilePlantsService;
-        //private static readonly Cloudinary Cloudinary = new Cloudinary(
-        //    new CloudinaryDotNet.Account("dwb7swvaf", "832363197752178", "eiHmj9s3_MG6VfQGBp0rQN02LmM"));
         Token token = new Token();
         Login login = new Login();
         public AccountController(IAccountService _accountService, IProfilePlantsService _profilePlantsService)
@@ -89,32 +87,12 @@ namespace Bau.Seedit.API.Controllers
         public IActionResult createProfile(Profile profile)
         {
 
-            //var token = Request.Headers["x-auth-token"];
-            //var tokenHandler = new JwtSecurityTokenHandler();
-            //var validationParameters = new TokenValidationParameters
-            //{
-            //    ValidateIssuerSigningKey = true,
-            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING ,JWT SECRET KEY IN SIGNATURE")),
-            //    ValidateIssuer = false,
-            //    ValidateAudience = false
-            //};
-
-            //try
-            //{
-            //    tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
-            //}
-            //catch (SecurityTokenException)
-            //{
-            //    return Unauthorized();
-            //}
-
             try
             {
                 profile.Id = Math.Abs(Guid.NewGuid().GetHashCode());
                 accountService.CreateProfile(profile);
                 Profile profile1 = accountService.getProfileById(profile.Id);
-                //token.profile = new Profile { Id = profile.Id, bio = profile.bio, profilePic = profile.profilePic, profilePicThumbnail = profile.profilePicThumbnail, profileUserName = profile.profileUserName, address = profile.address, UserId = profile.UserId}
-
+              
                 return Ok(profile1);
             }
             catch (Exception)
@@ -131,25 +109,7 @@ namespace Bau.Seedit.API.Controllers
         [HttpPut]
         [Route("updateProfile")]
         public IActionResult UpdateProfile(Profile profile)
-        {
-            //var token = Request.Headers["x-auth-token"];
-            //var tokenHandler = new JwtSecurityTokenHandler();
-            //var validationParameters = new TokenValidationParameters
-            //{
-            //    ValidateIssuerSigningKey = true,
-            //    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("SECRET USED TO SIGN AND VERIFY JWT TOKENS, IT CAN BE ANY STRING ,JWT SECRET KEY IN SIGNATURE")),
-            //    ValidateIssuer = false,
-            //    ValidateAudience = false
-            //};
-
-            //try
-            //{
-            //    tokenHandler.ValidateToken(token, validationParameters, out SecurityToken validatedToken);
-            //}
-            //catch (SecurityTokenException)
-            //{
-            //    return Unauthorized();
-            //}
+        { 
 
             try
             {
@@ -166,19 +126,11 @@ namespace Bau.Seedit.API.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteAccount/{id}")]//
+        [Route("deleteAccount/{id}")]
         public bool DeleteAccount(int id)
         {
             return accountService.DeleteAccount(id);
         }
-        [HttpGet, Authorize]
-        [Route("Auth")]
-        public ActionResult<string> GetMe()
-        {
-            var userName = accountService.getMyName();
-            return Ok(userName);
-        }
-
 
         [HttpPost]
         [Route("login")]
@@ -199,7 +151,6 @@ namespace Bau.Seedit.API.Controllers
 
             if (login.token != null)
             {
-                //return Ok(login);
                 return Ok(new LoginResp
                 {
                     Token = login.token,
@@ -228,12 +179,6 @@ namespace Bau.Seedit.API.Controllers
                 return Unauthorized("Username or Password is incorrect");
             }
         }
-        //[HttpPost]
-        //[Route("AutoLogin")]
-        //public IActionResult AutoLogin(UserLoginDTO userLoginDTO)
-        //{
-
-        //}
 
         [HttpPut]
         [Route("Upload/{id}")]
@@ -265,11 +210,9 @@ namespace Bau.Seedit.API.Controllers
                 accountService.UploadThumb(id, result2.Uri.ToString());
                 accountService.UploadImage(id, result.Uri.ToString());
                 Profile profile = accountService.getProfileById(id);
-                // return CreatedAtAction(nameof(UploadImageAsync), new { id = profile.Id }, profile);
                 return Ok(profile);
 
             }
-
 
             catch (Exception ex)
             {

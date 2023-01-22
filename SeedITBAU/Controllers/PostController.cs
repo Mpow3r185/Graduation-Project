@@ -104,7 +104,6 @@ namespace Bau.Seedit.API.Controllers
             return postActionService.deletePostAction(id);
         }
 
-        //Comment
 
         [HttpGet]
         [Route("getComments")]
@@ -134,21 +133,6 @@ namespace Bau.Seedit.API.Controllers
             return commentService.deleteComment(id);
 
         }
-
-        [HttpPost]
-        [Route("commentUpVote")]
-        public bool CommentUpVote(int id)
-        {
-            return commentService.CommentUpVote(id);
-        }
-        [HttpPost]
-        [Route("commentDownVote")]
-        public bool CommentDownVote(int id)
-        {
-            return commentService.CommentDownVote(id);
-        }
-
-      
 
         [HttpPost]
         [Route("Upload/{id}")]

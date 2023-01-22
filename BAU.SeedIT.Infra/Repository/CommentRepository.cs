@@ -19,21 +19,6 @@ namespace Bau.Seedit.Infra.Repository
         {
             dbContext = _dbContext;
         }
-        public bool CommentDownVote(int commentId)
-        {
-            var parameters = new DynamicParameters();
-            parameters.Add("@comment_id", commentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dbContext.Connection.ExecuteAsync("commentDownVote", parameters, commandType: CommandType.StoredProcedure);
-            return true;
-        }
-
-        public bool CommentUpVote(int commentId)
-        {
-            var parameters = new DynamicParameters();
-            parameters.Add("@comment_id", commentId, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result = dbContext.Connection.ExecuteAsync("commentUpVote", parameters, commandType: CommandType.StoredProcedure);
-            return true;
-        }
         public List<CommentDTO> getCommentsByPostId(int id)
         {
             var parameters = new DynamicParameters();

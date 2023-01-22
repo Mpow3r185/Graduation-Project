@@ -16,7 +16,6 @@ namespace Bau.Seedit.Core.ServiceInterface
         bool postUpVote(int postId);
         bool postDownVote(int postId);
         string UploadImagePost(string image, int id);
-        bool updatePostPublishedAt(int id, DateTime publishedAt);
 
     }
 }

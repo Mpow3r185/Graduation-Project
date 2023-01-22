@@ -50,9 +50,6 @@ namespace Bau.Seedit.Infra.Service
         {
             return postRepository.UploadImagePost(image, id);
         }
-        public bool updatePostPublishedAt(int id, DateTime publishedAt)
-        {
-            return postRepository.updatePostPublishedAt(id, publishedAt);
-        }
+
     }
 }

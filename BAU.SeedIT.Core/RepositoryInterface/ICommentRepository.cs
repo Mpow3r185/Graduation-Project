@@ -12,8 +12,6 @@ namespace Bau.Seedit.Core.RepositoryInterface
         List<Comment> getAllComments();
         bool updateComment(Comment comment);
         bool deleteComment(int id);
-        bool CommentUpVote(int CommentId);
-        bool CommentDownVote(int CommentId);
         List<CommentDTO> getCommentsByPostId(int id);
 
     }

@@ -119,7 +119,7 @@ namespace BAU.SeedIT.API.Controllers
                 }
                 catch (Exception)
                 {
-                    // token is invalid
+                   
                     return Unauthorized("Unauthorized");
                 }
                 }
@@ -132,7 +132,6 @@ namespace BAU.SeedIT.API.Controllers
                 var newToken = GenerateJWT();
                 AccountDTO account1 = accountService.getUserById(Int32.Parse(userId));
                 Profile profile1 = accountService.getProfileByUserId(account1.Id);
-                // Return the new token
                 login.token = newToken;
                 login.user = account1;
                 if (profile1 == null)
@@ -178,7 +177,7 @@ namespace BAU.SeedIT.API.Controllers
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                        new Claim(ClaimTypes.Name,userId.ToString()) //(LoginResult.Id).ToString()
+                        new Claim(ClaimTypes.Name,userId.ToString())
 
 
                 }),

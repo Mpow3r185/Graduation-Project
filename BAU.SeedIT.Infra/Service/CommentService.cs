@@ -16,15 +16,6 @@ namespace Bau.Seedit.Infra.Service
         {
             commentRepository = _commentRepository;
         }
-        public bool CommentDownVote(int CommentId)
-        {
-            return commentRepository.CommentDownVote(CommentId);
-        }
-
-        public bool CommentUpVote(int CommentId)
-        {
-            return commentRepository.CommentUpVote(CommentId);
-        }
         public List<CommentDTO> getCommentsByPostId(int id)
         {
             return commentRepository.getCommentsByPostId(id);
